@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Who is logged in: {{loggedin}}</p>
+<ul>
+  <li>
+    {% ifequal loggedin "Anonymous" %}
+      <a href="/login">Login</a>
+    {% else %} <!-- user is logged in -->
+      <a href="{{logout_url}}">Logout</a>
+    {% endifequal %}
+  </li>
+  {% ifequal loggedin "Admin" %}
+    <li class="right">
+      <a href="/admin">Admin</a>
+    </li>
+  {% endifequal %}
+</ul>
+</body>
+</html>
