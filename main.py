@@ -2,6 +2,7 @@ import webapp2
 from google.appengine.ext.webapp import template
 from google.appengine.api import users
 from login import LoginHandler
+from admin import AdminHandler
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -25,5 +26,6 @@ class HomeHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     webapp2.Route(r'/', HomeHandler),
-    webapp2.Route(r'/login', LoginHandler, schemes=['https'])
+    webapp2.Route(r'/login', LoginHandler, schemes=['https']),
+    webapp2.Route(r'/admin', AdminHandler, schemes=['https'])
 ], debug=True)
